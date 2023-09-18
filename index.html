@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>SpeedyReader</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind_config.js"></script>
+  <script src="js/main.js" defer></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,300&display=swap');
+  </style>
+</head>
+
+<body class="relative h-[100vh] bg-gradient-to-r from-gradient1 via-gradient2 to-gradient3 px-64 py-24">
+<!--  <main class="p-24 bg-color1 text-white flex flex-col gap-24 bg-opacity-50 rounded-xl">-->
+  <main class="p-24 h-screen bg-color1 text-white grid grid-cols-9 gap-24 bg-opacity-50 rounded-xl">
+    <h1 class="col-start-2 col-end-6 text-48 font-kanit">Speedy Reader</h1>
+    <p class="col-start-2 col-end-8">Данная страница поможет вам читать тексты бысрее, чем вы делаете это обычно.</p>
+    <div class="col-start-2 col-end-8 flex flex-col gap-6">
+      <p>Несколько советов перед ипользованием:</p>
+      <ol class="pl-24">
+        <li type="1">Используйте Google Chrome и хромоподобные браузеры</li>
+        <li type="1">После каждого использования перезагружайте страницу</li>
+        <li type="1">Для полноты эффекта перейдите в полноэкранный режим:
+          <p>3.1 Windows: <span class="ml-12">Нажмите клавишу</span>
+          <span class="inline-block p-2 px-6 border rounded-8 ml-12">F11</span>
+        </p>
+          <p>3.2 Mac  OS: <span class="ml-12">Используйте сочетание клавиш</span>
+            <span class="inline-block p-2 px-6 border rounded-8 ml-12">shift</span> +
+            <span class="inline-block p-2 px-6 border rounded-8">⌘ command</span> +
+            <span class="inline-block p-2 px-6 border rounded-8">F</span>
+          </p>
+          <p class="opacity-50">
+           P.s. Для выхода из полноэкранного режима используйте те же клавиши
+          </p>
+        </li>
+        <li type="1">Не вставляйте слишком большой текст</li>
+      </ol>
+    </div>
+    <section class="col-start-2 col-end-9  shrink-1 flex flex-col gap-12 ">
+        <h3>Выберите скорость:</h3>
+
+          <div class=" flex gap-24 w-full">
+
+            <div class="flex gap-24">
+              <button onclick="choosedSpeed(250)"  class="py-16 px-24 border border-1 border-solid rounded-16 text-18_26">
+                250
+              </button>
+              <button onclick="choosedSpeed(350)" class="py-16 px-24 border border-1 border-solid rounded-16 text-18_26">
+                350
+              </button>
+              <button onclick="choosedSpeed(500)" class="py-16 px-24 border border-1 border-solid rounded-16 text-18_26">
+                500
+              </button>
+            </div>
+
+            <input id="speed" type="number" placeholder="Слов в минуту" value=""
+                   class=" bg-transparent py-16 pl-24 border border-1 border-solid rounded-16 text-18_26"
+            >
+
+            <button onclick="" id="go" class=" ml-auto py-16 px-24 border border-1 border-solid rounded-16 text-18_26">
+              Пуск
+            </button>
+        </div>
+      <div class="w-full">
+        <textarea class="w-full p-12 bg-opacity-20 h-[250px] bg-transparent border-1 resize-none rounded-xl border" id="TextForReading" required placeholder="Вставьте текст для чтения"></textarea>
+      </div>
+    </section>
+    <div id="wordContainer"></div>
+  </main>
+<p class="ml-auto opacity-30">Powered by MK.TSG </p>
+<div id="speaker" class="absolute flex place-items-center justify-center h-full w-full top-0 left-0 bg-black hidden">
+  <button id="close" class="absolute right-12 top-12 h-40 w-40 rounded-full border">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 25 25" fill="">
+      <path d="M6.96967 16.4697C6.67678 16.7626 6.67678 17.2374 6.96967 17.5303C7.26256 17.8232 7.73744 17.8232 8.03033 17.5303L6.96967 16.4697ZM13.0303 12.5303C13.3232 12.2374 13.3232 11.7626 13.0303 11.4697C12.7374 11.1768 12.2626 11.1768 11.9697 11.4697L13.0303 12.5303ZM11.9697 11.4697C11.6768 11.7626 11.6768 12.2374 11.9697 12.5303C12.2626 12.8232 12.7374 12.8232 13.0303 12.5303L11.9697 11.4697ZM18.0303 7.53033C18.3232 7.23744 18.3232 6.76256 18.0303 6.46967C17.7374 6.17678 17.2626 6.17678 16.9697 6.46967L18.0303 7.53033ZM13.0303 11.4697C12.7374 11.1768 12.2626 11.1768 11.9697 11.4697C11.6768 11.7626 11.6768 12.2374 11.9697 12.5303L13.0303 11.4697ZM16.9697 17.5303C17.2626 17.8232 17.7374 17.8232 18.0303 17.5303C18.3232 17.2374 18.3232 16.7626 18.0303 16.4697L16.9697 17.5303ZM11.9697 12.5303C12.2626 12.8232 12.7374 12.8232 13.0303 12.5303C13.3232 12.2374 13.3232 11.7626 13.0303 11.4697L11.9697 12.5303ZM8.03033 6.46967C7.73744 6.17678 7.26256 6.17678 6.96967 6.46967C6.67678 6.76256 6.67678 7.23744 6.96967 7.53033L8.03033 6.46967ZM8.03033 17.5303L13.0303 12.5303L11.9697 11.4697L6.96967 16.4697L8.03033 17.5303ZM13.0303 12.5303L18.0303 7.53033L16.9697 6.46967L11.9697 11.4697L13.0303 12.5303ZM11.9697 12.5303L16.9697 17.5303L18.0303 16.4697L13.0303 11.4697L11.9697 12.5303ZM13.0303 11.4697L8.03033 6.46967L6.96967 7.53033L11.9697 12.5303L13.0303 11.4697Z" fill="#a0042d"/>
+    </svg>
+  </button>
+
+  <div id="word" class="text-100 text-white ">
+
+  </div>
+
+</div>
+</body>
+
+</html>
